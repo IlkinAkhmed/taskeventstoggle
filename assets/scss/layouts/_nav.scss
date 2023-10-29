@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+nav {
+    height: 90px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(224, 224, 224);
+    z-index: 1;
+
+    .navInside {
+        display: flex;
+        max-width: 95%;
+        height: 100%;
+        margin: auto;
+        justify-content: space-between;
+        align-items: center;
+
+        .logo {
+            width: 100px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        ul {
+            display: flex;
+            height: 100%;
+            gap: 50px;
+            align-items: center;
+            justify-content: center;
+
+            a {
+                color: black;
+                font-family: "Roboto", sans-serif;
+                font-weight: bold;
+            }
+        }
+
+        .barMenu {
+
+            cursor: pointer;
+            display: none;
+
+            .menuLine1,
+            .menuLine2,
+            .menuLine3 {
+                width: 35px;
+                height: 5px;
+                background-color: black;
+                margin: 6px 0;
+                border-radius: 35px;
+                transition: 0.4s;
+            }
+
+        }
+    }
+
+
+    .openedNav {
+        width: 300px;
+        height: 100vh;
+        background-color: gray;
+        font-family: "Roboto", sans-serif;
+        opacity: 0;
+        transition: 0.4s;
+        position: absolute;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        right: 0;
+        top: 90px;
+
+        ul {
+            margin-left: 20px;
+            display: flex;
+            flex-direction: column;
+
+            a {
+                font-weight: bold;
+                color: white;
+                font-size: 25px;
+
+                li {
+                    padding: 10px 0;
+                }
+            }
+        }
+    }
+
+}
+
+.change.openedNav {
+    opacity: 1;
+    transition: 0.4s;
+}
+
+.change .menuLine1 {
+    transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .menuLine2 {
+    opacity: 0;
+}
+
+.change .menuLine3 {
+    transform: translate(0, -11px) rotate(45deg);
+}
+
+
+@media only screen and (max-width: 810px) {
+    nav {
+        max-width: 100%;
+
+        .navInside {
+            ul {
+                display: none;
+            }
+
+            .barMenu {
+                display: block;
+            }
+        }
+        .openedNav{
+            opacity: 0;
+        }
+    }
+}
